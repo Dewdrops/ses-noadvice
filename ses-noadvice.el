@@ -3,7 +3,7 @@
 ;; Copyright (C) 2014 by Dewdrops
 
 ;; Author: Dewdrops <v_v_4474@126.com>
-;; URL: http://github.com/Dewdrops/dewdrops-ses-setting
+;; URL: http://github.com/Dewdrops/ses-noadvice-setting
 ;; Version: 0.1
 ;; Keywords: ses advice
 ;; Package-Requires: ((ses "21.1"))
@@ -45,8 +45,8 @@
      (ses-unload-function)
 
      (define-key ses-mode-print-map (kbd "C-w") 'ses-kill-override)
-     (define-key ses-mode-print-map (kbd "M-w") 'dewdrops-ses-copy-region-as-kill)
-     (define-key ses-mode-print-map (kbd "C-y") 'dewdrops-ses-yank)
+     (define-key ses-mode-print-map (kbd "M-w") 'ses-noadvice-copy-region-as-kill)
+     (define-key ses-mode-print-map (kbd "C-y") 'ses-noadvice-yank)
      (define-key ses-mode-edit-map (kbd "TAB") 'lisp-complete-symbol)
 
      (when ses-noadvice-vi-like-binding
@@ -61,11 +61,11 @@
        (define-key ses-mode-print-map (kbd "d") 'ses-clear-cell-forward)
        (define-key ses-mode-print-map (kbd "v") 'set-mark-command)
        (define-key ses-mode-print-map (kbd "c") 'ses-kill-override)
-       (define-key ses-mode-print-map (kbd "y") 'dewdrops-ses-copy-region-as-kill)
-       (define-key ses-mode-print-map (kbd "p") 'dewdrops-ses-yank)
+       (define-key ses-mode-print-map (kbd "y") 'ses-noadvice-copy-region-as-kill)
+       (define-key ses-mode-print-map (kbd "p") 'ses-noadvice-yank)
        (define-key ses-mode-print-map (kbd "P") 'ses-read-cell-printer))
 
-     (defun dewdrops-ses-copy-region-as-kill (beg end)
+     (defun ses-noadvice-copy-region-as-kill (beg end)
        "Reimplement ses' copy-region-as-kill advice use function"
        (interactive "r")
        (when (> beg end)
@@ -99,7 +99,7 @@
          (ses-clear-cell row col))
        (ses-jump (car ses--curcell)))
 
-     (defun dewdrops-ses-yank (&optional arg)
+     (defun ses-noadvice-yank (&optional arg)
        "Reimplement ses' yank advice use function"
        (interactive "*P")
        (let ((x-select-enable-primary nil))
@@ -126,4 +126,4 @@
      ))
 
 (provide 'ses-noadvice)
-;;; dewdrops-ses-setting.el ends here
+;;; ses-noadvice-setting.el ends here
