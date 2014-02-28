@@ -3,7 +3,7 @@
 ;; Copyright (C) 2014 by Dewdrops
 
 ;; Author: Dewdrops <v_v_4474@126.com>
-;; URL: http://github.com/Dewdrops/ses-noadvice-setting
+;; URL: http://github.com/Dewdrops/ses-noadvice
 ;; Version: 0.1
 ;; Keywords: ses advice
 ;; Package-Requires: ((ses "21.1"))
@@ -60,7 +60,7 @@
        (define-key ses-mode-print-map (kbd "u") 'undo)
        (define-key ses-mode-print-map (kbd "d") 'ses-clear-cell-forward)
        (define-key ses-mode-print-map (kbd "v") 'set-mark-command)
-       (define-key ses-mode-print-map (kbd "c") 'ses-kill-override)
+       (define-key ses-mode-print-map (kbd "s") 'ses-kill-override)
        (define-key ses-mode-print-map (kbd "y") 'ses-noadvice-copy-region-as-kill)
        (define-key ses-mode-print-map (kbd "p") 'ses-noadvice-yank)
        (define-key ses-mode-print-map (kbd "P") 'ses-read-cell-printer))
