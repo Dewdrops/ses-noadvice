@@ -83,12 +83,14 @@
 (defun ses-kill-override (beg end)
   "Reimplement `ses-kill-override' using `ses-noadvice-copy-region-as-kill'."
   (interactive "r")
-  (ses-noadvice-copy-region-as-kill beg end)
-  (barf-if-buffer-read-only)
-  (ses-begin-change)
-  (ses-dorange ses--curcell
-    (ses-clear-cell row col))
-  (ses-jump (car ses--curcell)))
+  (if (not (eq (get-text-property (point) 'keymap) 'ses-mode-print-map))
+      (kill-region beg end)
+    (ses-noadvice-copy-region-as-kill beg end)
+    (barf-if-buffer-read-only)
+    (ses-begin-change)
+    (ses-dorange ses--curcell
+                 (ses-clear-cell row col))
+    (ses-jump (car ses--curcell))))
 
 (defun ses-noadvice-yank (&optional arg)
   "Reimplement ses' yank advice use function."
