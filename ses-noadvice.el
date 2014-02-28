@@ -81,7 +81,7 @@
     nil))
 
 (defun ses-kill-override (beg end)
-  "Reimplement `ses-kill-override' without lookup key."
+  "Reimplement `ses-kill-override' using `ses-noadvice-copy-region-as-kill'."
   (interactive "r")
   (ses-noadvice-copy-region-as-kill beg end)
   (barf-if-buffer-read-only)
