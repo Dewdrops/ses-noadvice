@@ -66,7 +66,7 @@
   (define-key ses-mode-print-map (kbd "P") 'ses-read-cell-printer))
 
 (defun ses-noadvice-copy-region-as-kill (beg end)
-  "Reimplement ses' `copy-region-as-kill' advice use function."
+  "Reimplement ses' `copy-region-as-kill' advice using function."
   (interactive "r")
   (when (> beg end)
     (let ((temp beg))
@@ -91,7 +91,7 @@
   (ses-jump (car ses--curcell)))
 
 (defun ses-noadvice-yank (&optional arg)
-  "Reimplement ses' yank advice use function."
+  "Reimplement ses' yank advice using function."
   (interactive "*P")
   (let ((x-select-enable-primary nil))
     (if (not (eq (get-text-property (point) 'keymap) 'ses-mode-print-map))
