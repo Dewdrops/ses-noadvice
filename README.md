@@ -3,7 +3,7 @@ ses-noadvice
 
 Reimplementation of ses' killing and yanking feature without bothering advice.
 
-Installation
+Usage
 ------------
 
 ```lisp
